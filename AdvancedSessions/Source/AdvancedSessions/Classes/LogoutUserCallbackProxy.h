@@ -21,7 +21,8 @@ class ULogoutUserCallbackProxy : public UOnlineBlueprintCallProxyBase
 	FEmptyOnlineDelegate OnFailure;
 
 	// Logs out of the identity interface
-	UFUNCTION(BlueprintCallable, meta=(BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|AdvancedIdentity")
+	// 从身份（Identity）接口登出
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "登出用户 (LogoutUser)", BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|AdvancedIdentity")
 	static ULogoutUserCallbackProxy* LogoutUser(UObject* WorldContextObject, class APlayerController* PlayerController);
 
 	// UOnlineBlueprintCallProxyBase interface

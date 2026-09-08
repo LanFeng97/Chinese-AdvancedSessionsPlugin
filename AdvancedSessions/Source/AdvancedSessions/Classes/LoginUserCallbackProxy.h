@@ -21,7 +21,9 @@ class ULoginUserCallbackProxy : public UOnlineBlueprintCallProxyBase
 	FEmptyOnlineDelegate OnFailure;
 
 	// Logs into the identity interface
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject", AdvancedDisplay = "AuthType"), Category = "Online|AdvancedIdentity")
+	// 登录到身份（Identity）接口
+	// [相对4.26] 4.27起新增AuthType参数（认证类型），并归类为AdvancedDisplay高级显示参数
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "登录用户 (LoginUser)", BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject", AdvancedDisplay = "AuthType"), Category = "Online|AdvancedIdentity")
 		static ULoginUserCallbackProxy* LoginUser(UObject* WorldContextObject, class APlayerController* PlayerController, FString UserID, FString UserToken, FString AuthType);
 
 	// UOnlineBlueprintCallProxyBase interface
