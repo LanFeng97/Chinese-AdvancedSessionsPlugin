@@ -23,7 +23,8 @@ class UGetRecentPlayersCallbackProxy : public UOnlineBlueprintCallProxyBase
 	FBlueprintGetRecentPlayersDelegate OnFailure;
 
 	// Gets the list of recent players from the OnlineSubsystem and returns it, can be retrieved later with GetStoredRecentPlayersList, can fail if no recent players are found
-	UFUNCTION(BlueprintCallable, meta=(BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|AdvancedFriends")
+	// 从OnlineSubsystem获取最近玩家列表并返回，之后可用GetStoredRecentPlayersList再次获取；若找不到最近玩家记录则可能失败
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "获取并存储最近玩家列表 (GetAndStoreRecentPlayersList)", BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|AdvancedFriends")
 	static UGetRecentPlayersCallbackProxy* GetAndStoreRecentPlayersList(UObject* WorldContextObject, const FBPUniqueNetId &UniqueNetId);
 
 	virtual void Activate() override;

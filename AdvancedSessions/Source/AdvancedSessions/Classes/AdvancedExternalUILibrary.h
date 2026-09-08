@@ -32,32 +32,39 @@ public:
 	//********* External UI Functions *************//
 
 	// Show the UI that handles the Friends list
-	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedExternalUI", meta = (ExpandEnumAsExecs = "Result"))
+	// 显示用于处理好友列表的界面
+	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedExternalUI", meta = (DisplayName = "显示好友列表界面 (ShowFriendsUI)", ExpandEnumAsExecs = "Result"))
 	static void ShowFriendsUI(APlayerController *PlayerController, EBlueprintResultSwitch &Result);
 
 	// Show the UI that handles inviting people to your game
-	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedExternalUI", meta = (ExpandEnumAsExecs = "Result"))
+	// 显示用于邀请他人加入你游戏的界面
+	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedExternalUI", meta = (DisplayName = "显示邀请界面 (ShowInviteUI)", ExpandEnumAsExecs = "Result"))
 	static void ShowInviteUI(APlayerController *PlayerController, EBlueprintResultSwitch &Result);
 
 	// Show the UI that shows the leaderboard (doesn't work with steam)
-	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedExternalUI", meta = (ExpandEnumAsExecs = "Result"))
+	// 显示排行榜界面（Steam平台不可用）
+	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedExternalUI", meta = (DisplayName = "显示排行榜界面 (ShowLeaderBoardUI)", ExpandEnumAsExecs = "Result"))
 	static void ShowLeaderBoardUI(FString LeaderboardName, EBlueprintResultSwitch &Result);
 
 	// Show the UI that shows a web URL
-	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedExternalUI", meta = (ExpandEnumAsExecs = "Result", AutoCreateRefTerm = "AllowedDomains"))
+	// 显示用于展示网页URL的界面
+	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedExternalUI", meta = (DisplayName = "显示网页URL界面 (ShowWebURLUI)", ExpandEnumAsExecs = "Result", AutoCreateRefTerm = "AllowedDomains"))
 	static void ShowWebURLUI(FString URLToShow, EBlueprintResultSwitch &Result, TArray<FString>& AllowedDomains, bool bEmbedded = false , bool bShowBackground = false, bool bShowCloseButton = false, int32 OffsetX = 0, int32 OffsetY = 0, int32 SizeX = 0, int32 SizeY = 0);
 
 	// Show the UI that shows a web URL
-	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedExternalUI")
+	// 关闭用于展示网页URL的界面
+	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedExternalUI", meta = (DisplayName = "关闭网页URL界面 (CloseWebURLUI)"))
 	static void CloseWebURLUI();
 
 
 	// Show the UI that shows the profile of a uniquenetid
-	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedExternalUI", meta = (ExpandEnumAsExecs = "Result"))
+	// 显示指定唯一网络ID（UniqueNetId）玩家的资料界面
+	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedExternalUI", meta = (DisplayName = "显示玩家资料界面 (ShowProfileUI)", ExpandEnumAsExecs = "Result"))
 	static void ShowProfileUI(const FBPUniqueNetId PlayerViewingProfile, const FBPUniqueNetId PlayerToViewProfileOf, EBlueprintResultSwitch &Result);
 
 	// Show the UI that shows the account upgrade UI (doesn't work with steam)
-	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedExternalUI", meta = (ExpandEnumAsExecs = "Result"))
+	// 显示账号升级界面（Steam平台不可用）
+	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedExternalUI", meta = (DisplayName = "显示账号升级界面 (ShowAccountUpgradeUI)", ExpandEnumAsExecs = "Result"))
 	static void ShowAccountUpgradeUI(const FBPUniqueNetId PlayerRequestingAccountUpgradeUI, EBlueprintResultSwitch &Result);
 
 };	

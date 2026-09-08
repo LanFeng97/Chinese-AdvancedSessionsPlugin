@@ -23,7 +23,12 @@ class UEndSessionCallbackProxy : public UOnlineBlueprintCallProxyBase
 	 *	  Ends the current sessions, Generally for almost all uses you should be using the engines native Destroy Session node instead.
 	 *	  This exists for people using StartSession and optionally hand managing the session state.
 	 */
-	UFUNCTION(BlueprintCallable, meta=(BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|AdvancedSessions")
+	/**
+	 *  结束当前会话。对绝大多数用途而言，你应该使用引擎原生的销毁会话（Destroy Session）节点。
+	 *  本函数供使用StartSession并选择手动管理会话状态的用户使用。
+	 *  [相对4.26] 4.27起上游移除了本函数的Deprecated弃用标记。
+	 */
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "结束会话 (EndSession)", BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|AdvancedSessions")
 	static UEndSessionCallbackProxy* EndSession(UObject* WorldContextObject, class APlayerController* PlayerController);
 
 	// UOnlineBlueprintCallProxyBase interface
