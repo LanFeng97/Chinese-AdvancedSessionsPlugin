@@ -1,10 +1,10 @@
 {
     "FileVersion" : 3,
  
-    "FriendlyName" : "Advanced Steam Sessions",
+    "FriendlyName" : "高级Steam会话 (Advanced Steam Sessions)",
     "Version" : 5.7,
     "VersionName": "5.7",
-    "Description" : "Adds new blueprint functions to handle more advanced session operations in Steam. REQUIRES ADVANCED SESSIONS",
+    "Description" : "为在Steam中进行更高级的会话操作而添加的新蓝图函数，需要AdvancedSessions插件。(Adds new blueprint functions to handle more advanced session operations in Steam. REQUIRES ADVANCED SESSIONS)",
     "Category" : "Advanced Sessions Plugin",
     "CreatedBy" : "Joshua Statzer",
     "CreatedByURL" : "N/A",
