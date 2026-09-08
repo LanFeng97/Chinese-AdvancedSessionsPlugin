@@ -335,7 +335,7 @@ public:
 
 	// Get a texture of a valid friends avatar, STEAM ONLY, Returns invalid texture if the subsystem hasn't loaded that size of avatar yet
 	// 获取有效好友头像的纹理，仅限Steam；若子系统尚未加载该尺寸的头像则返回无效纹理
-	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedFriends|SteamAPI", meta = (ExpandEnumAsExecs = "Result"))
+	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedFriends|SteamAPI", meta = (DisplayName = "获取Steam好友头像 (GetSteamFriendAvatar)", ExpandEnumAsExecs = "Result"))
 	static UTexture2D * GetSteamFriendAvatar(const FBPUniqueNetId UniqueNetId, EBlueprintAsyncResultSwitch &Result, SteamAvatarSize AvatarSize = SteamAvatarSize::SteamAvatar_Medium);
 
 	// Preloads the avatar and name of a steam friend, return whether it is already available or not, STEAM ONLY, Takes time to actually load everything after this is called.
@@ -355,7 +355,7 @@ public:
 
 	// Gets the level of a friends steam account, STEAM ONLY, Returns -1 if the steam level is not known, might need RequestSteamFriendInfo called first.
 	// 获取好友Steam账号的等级；仅限Steam。若等级未知则返回-1，可能需要先调用RequestSteamFriendInfo。
-	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedFriends|SteamAPI")
+	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedFriends|SteamAPI", meta = (DisplayName = "获取好友Steam等级 (GetFriendSteamLevel)"))
 	static int32 GetFriendSteamLevel(const FBPUniqueNetId UniqueNetId);
 
 	// Gets the persona name of a steam ID, STEAM ONLY, Returns empty if no result, might need RequestSteamFriendInfo called first.
