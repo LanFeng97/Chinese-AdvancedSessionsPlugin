@@ -29,8 +29,6 @@ class UCreateSessionCallbackProxyAdvanced : public UOnlineBlueprintCallProxyBase
 	 *	  @param bUseLobbiesVoiceChatIfAvailable Set to true to setup voice chat lobbies if the API supports it
 	 * 	  @param bStartAfterCreate Set to true to start the session after it's created. If false you need to manually call StartSession when ready.
 	 */
-	*/
-	*/
 	/**
 	*  使用默认在线子系统创建一个带高级可选输入的会话。对于专用服务器，请将UsePresence设为false并把IsDedicatedServer设为true，专用服务器不使用Presence。
 	*  @param PublicConnections	做“listen”服务器时该值必须>=2（ListenServer自身也算一个连接）

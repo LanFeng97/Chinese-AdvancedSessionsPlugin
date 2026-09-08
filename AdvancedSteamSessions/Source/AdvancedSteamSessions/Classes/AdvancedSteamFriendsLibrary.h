@@ -376,7 +376,6 @@ public:
 	/* Gets the current game played by a friend - AppID is int32 even though steam ids are uint32, can't be helped in blueprint currently
 	*  can use the AppID with the WebAPI GetAppList request.
 	*/
-	*/
 	// 获取好友当前正在游玩的游戏——AppID为int32（尽管Steam ID是uint32，目前蓝图无法更改）；可将AppID配合WebAPI的GetAppList请求使用
 	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedFriends|SteamAPI", meta = (DisplayName = "获取Steam好友正在玩的游戏 (GetSteamFriendGamePlayed)", ExpandEnumAsExecs = "Result"))
 	static void GetSteamFriendGamePlayed(const FBPUniqueNetId UniqueNetId, EBlueprintResultSwitch &Result/*, FString & GameName*/, int32 & AppID);

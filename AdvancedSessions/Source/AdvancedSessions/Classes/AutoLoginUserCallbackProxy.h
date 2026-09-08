@@ -29,7 +29,6 @@ class UAutoLoginUserCallbackProxy : public UOnlineBlueprintCallProxyBase
 	 * @param LocalUserNum the controller number of the associated user
 	 *
 	 */
-	*/
 	/**
 	*  使用命令行传入的参数将玩家登录到在线服务。期望 -AUTH_LOGIN=<用户名> -AUTH_PASSWORD=<密码>。
 	*  若任一参数缺失，本函数返回false且不会启动登录流程。
