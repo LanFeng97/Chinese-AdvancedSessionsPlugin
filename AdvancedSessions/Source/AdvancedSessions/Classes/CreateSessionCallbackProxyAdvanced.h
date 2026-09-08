@@ -30,7 +30,18 @@ class UCreateSessionCallbackProxyAdvanced : public UOnlineBlueprintCallProxyBase
 	 *	  @param bUseLobbiesVoiceChatIfAvailable Set to true to setup voice chat lobbies if the API supports it
 	 * 	  @param bStartAfterCreate Set to true to start the session after it's created. If false you need to manually call StartSession when ready.
 	 */
-	UFUNCTION(BlueprintCallable, meta=(BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject",AutoCreateRefTerm="ExtraSettings"), Category = "Online|AdvancedSessions")
+	/**
+	*  使用默认在线子系统创建一个带高级可选输入的会话。对于专用服务器，请将UsePresence设为false并把IsDedicatedServer设为true，专用服务器不使用Presence。
+	*  @param PublicConnections	做“listen”服务器时该值必须>=2（ListenServer自身也算一个连接）
+	*  @param bUseLAN			想进行局域网游戏时，所加载的地图必须带有“bIsLanMatch”选项
+	*  @param bUsePresence		对“listen”服务器必须为true（地图需带“listen”选项加载）；对“dedicated”服务器为false
+	*  @param bUseLobbiesIfAvailable	若API支持，标记子系统优先使用大厅（Lobby）API而非常规托管；Steam上做listen服务器时通常为true，专用服务器为false
+	*  @param bShouldAdvertise	希望在线子系统在别人搜索服务器时列出你的服务器就设为true，否则服务器隐藏、只能通过邀请加入。
+	*  @param bUseLobbiesVoiceChatIfAvailable	若API支持，设为true以搭建带语音聊天的大厅
+	*  @param bStartAfterCreate	设为true以在会话创建后自动开始该会话；若为false，你需要在准备就绪后手动调用StartSession（开始会话）。
+	*/
+	// [相对5.4] 5.5起上游已注释停用bUsePresence参数（蓝图中不再显示该输入，行为按旧默认true处理）
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "创建高级会话 (CreateAdvancedSession)", BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject",AutoCreateRefTerm="ExtraSettings"), Category = "Online|AdvancedSessions")
 		static UCreateSessionCallbackProxyAdvanced* CreateAdvancedSession(UObject* WorldContextObject, const TArray<FSessionPropertyKeyPair>& ExtraSettings, class APlayerController* PlayerController = NULL, int32 PublicConnections = 100, int32 PrivateConnections = 0, bool bUseLAN = false, bool bAllowInvites = true, bool bIsDedicatedServer = false, /*bool bUsePresence = true,*/ bool bUseLobbiesIfAvailable = true, bool bAllowJoinViaPresence = true, bool bAllowJoinViaPresenceFriendsOnly = false, bool bAntiCheatProtected = false, bool bUsesStats = false, bool bShouldAdvertise = true, bool bUseLobbiesVoiceChatIfAvailable = false, bool bStartAfterCreate = true);
 
 	// UOnlineBlueprintCallProxyBase interface

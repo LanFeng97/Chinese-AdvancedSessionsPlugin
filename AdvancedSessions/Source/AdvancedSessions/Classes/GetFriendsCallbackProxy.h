@@ -24,7 +24,8 @@ class UGetFriendsCallbackProxy : public UOnlineBlueprintCallProxyBase
 	FBlueprintGetFriendsListDelegate OnFailure;
 
 	// Gets the players list of friends from the OnlineSubsystem and returns it, can be retrieved later with GetStoredFriendsList
-	UFUNCTION(BlueprintCallable, meta=(BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|AdvancedFriends")
+	// 从OnlineSubsystem获取玩家好友列表并返回，之后可用GetStoredFriendsList再次获取
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "获取并存储好友列表 (GetAndStoreFriendsList)", BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|AdvancedFriends")
 	static UGetFriendsCallbackProxy* GetAndStoreFriendsList(UObject* WorldContextObject, class APlayerController* PlayerController);
 
 	virtual void Activate() override;
