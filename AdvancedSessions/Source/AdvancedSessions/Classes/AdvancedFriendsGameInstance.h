@@ -56,7 +56,8 @@ public:
 	void OnSessionInviteReceivedMaster(const FUniqueNetId & PersonInvited, const FUniqueNetId & PersonInviting, const FString & AppId, const FOnlineSessionSearchResult& SessionToJoin);
 
 	// After a session invite has been accepted by the local player this event is triggered, call JoinSession on the session result to join it
-	UFUNCTION(BlueprintImplementableEvent, Category = "AdvancedFriends")
+	// 当本地玩家收到会话邀请后触发此事件，可对会话结果调用JoinSession加入该会话
+	UFUNCTION(BlueprintImplementableEvent, Category = "AdvancedFriends", meta = (DisplayName = "收到会话邀请 (OnSessionInviteReceived)"))
 	void OnSessionInviteReceived(int32 LocalPlayerNum, FBPUniqueNetId PersonInviting, const FString& AppId, const FBlueprintSessionResult& SessionToJoin);
 
 	//*** Session invite accepted by local ***//
@@ -67,12 +68,15 @@ public:
 
 	// After a session invite has been accepted by the local player this event is triggered, call JoinSession on the session result to join it
 	// This function is currently not hooked up in any of Epics default subsystems, it is here for custom subsystems
-	UFUNCTION(BlueprintImplementableEvent, Category = "AdvancedFriends")
+	// 当本地玩家接受的会话邀请生效后触发此事件，可对会话结果调用JoinSession加入该会话
+	// 该函数目前未在Epic任何默认子系统中挂钩，仅为自定义子系统提供
+	UFUNCTION(BlueprintImplementableEvent, Category = "AdvancedFriends", meta = (DisplayName = "会话邀请被接受 (OnSessionInviteAccepted)"))
 	void OnSessionInviteAccepted(int32 LocalPlayerNum, FBPUniqueNetId PersonInvited, const FBlueprintSessionResult& SessionToJoin);
 
 
 	// After a voice status has changed this event is triggered if the bEnableTalkingStatusDelegate property is true
-	UFUNCTION(BlueprintImplementableEvent, Category = "AdvancedVoice")
+	// 当语音状态改变时触发此事件（若bEnableTalkingStatusDelegate属性为true）
+	UFUNCTION(BlueprintImplementableEvent, Category = "AdvancedVoice", meta = (DisplayName = "玩家语音状态改变 (OnPlayerTalkingStateChanged)"))
 	void OnPlayerTalkingStateChanged(FBPUniqueNetId PlayerId, bool bIsTalking);
 
 	void OnPlayerTalkingStateChangedMaster(TSharedRef<const FUniqueNetId> PlayerId, bool bIsTalking);
@@ -82,7 +86,8 @@ public:
 
 
 	// Called when the designated LocalUser has changed login state
-	UFUNCTION(BlueprintImplementableEvent , Category = "AdvancedIdentity", meta = (DisplayName = "OnPlayerLoginChanged"))
+	// 当指定本地用户（LocalUser）改变登录状态时调用
+	UFUNCTION(BlueprintImplementableEvent , Category = "AdvancedIdentity", meta = (DisplayName = "玩家登录状态改变 (OnPlayerLoginChanged)"))
 	void OnPlayerLoginChanged(int32 PlayerNum);
 
 	void OnPlayerLoginChangedMaster(int32 PlayerNum);
@@ -90,7 +95,8 @@ public:
 	FDelegateHandle PlayerLoginChangedDelegateHandle;
 
 	// Called when the designated LocalUser has changed login status
-	UFUNCTION(BlueprintImplementableEvent, Category = "AdvancedIdentity", meta = (DisplayName = "OnPlayerLoginStatusChanged"))
+	// 当指定本地用户（LocalUser）的登录状态发生变化时调用
+	UFUNCTION(BlueprintImplementableEvent, Category = "AdvancedIdentity", meta = (DisplayName = "玩家登录状态变更 (OnPlayerLoginStatusChanged)"))
 	void OnPlayerLoginStatusChanged(int32 PlayerNum, EBPLoginStatus PreviousStatus, EBPLoginStatus NewStatus, FBPUniqueNetId NewPlayerUniqueNetID);
 
 	void OnPlayerLoginStatusChangedMaster(int32 PlayerNum, ELoginStatus::Type PreviousStatus, ELoginStatus::Type NewStatus, const FUniqueNetId & NewPlayerUniqueNetID);
