@@ -20,6 +20,10 @@ class UStartSessionCallbackProxyAdvanced : public UOnlineBlueprintCallProxyBase
 	 * Starts a session with the default online subsystem. The session needs to be previously created by calling the "CreateAdvancedSession" node.
 	 * @param WorldContextObject
 	 */
+	/**
+	 *  使用默认在线子系统开始一个会话。该会话需先通过“创建高级会话（CreateAdvancedSession）”节点创建。
+	 *  @param WorldContextObject
+	 */
 	UFUNCTION(
 		BlueprintCallable
 		, meta = (DisplayName = "开始高级会话 (StartAdvancedSession)", BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject")
