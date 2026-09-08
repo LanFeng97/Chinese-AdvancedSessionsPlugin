@@ -21,7 +21,8 @@ class ULoginUserCallbackProxy : public UOnlineBlueprintCallProxyBase
 	FEmptyOnlineDelegate OnFailure;
 
 	// Logs into the identity interface
-	UFUNCTION(BlueprintCallable, meta=(BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|AdvancedIdentity")
+	// 登录到身份（Identity）接口
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "登录用户 (LoginUser)", BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|AdvancedIdentity")
 	static ULoginUserCallbackProxy* LoginUser(UObject* WorldContextObject, class APlayerController* PlayerController, FString UserID, FString UserToken);
 
 	// UOnlineBlueprintCallProxyBase interface

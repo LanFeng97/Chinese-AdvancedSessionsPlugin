@@ -20,7 +20,9 @@ class UEndSessionCallbackProxy : public UOnlineBlueprintCallProxyBase
 	FEmptyOnlineDelegate OnFailure;
 
 	// Ends the current session
-	UFUNCTION(BlueprintCallable, meta=(DeprecatedFunction,DeprecationMessage = "This function is deprecated, I realized that people have been using it wrong and it doesn't have much use in blueprints. Use Destroy Session only instead.",BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|AdvancedSessions|Deprecated")
+	// 结束当前会话
+	// 注意：该函数已弃用。官方说明：发现人们一直在误用此函数，且它在蓝图中用处不大，请仅使用销毁会话（Destroy Session）代替。
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "结束会话 (EndSession)", DeprecatedFunction,DeprecationMessage = "This function is deprecated, I realized that people have been using it wrong and it doesn't have much use in blueprints. Use Destroy Session only instead.",BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|AdvancedSessions|Deprecated")
 	static UEndSessionCallbackProxy* EndSession(UObject* WorldContextObject, class APlayerController* PlayerController);
 
 	// UOnlineBlueprintCallProxyBase interface

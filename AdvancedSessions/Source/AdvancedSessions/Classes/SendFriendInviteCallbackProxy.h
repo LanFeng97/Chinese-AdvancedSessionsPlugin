@@ -24,7 +24,8 @@ class USendFriendInviteCallbackProxy : public UOnlineBlueprintCallProxyBase
 	FBlueprintSendFriendInviteDelegate OnFailure;
 
 	// Adds a friend who is using the defined UniqueNetId, some interfaces do now allow this function to be called (INCLUDING STEAM)
-	UFUNCTION(BlueprintCallable, meta=(BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|AdvancedFriends")
+	// 添加使用指定UniqueNetId的好友；注意部分接口不允许调用该函数（包括Steam）
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "发送好友邀请 (SendFriendInvite)", BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|AdvancedFriends")
 	static USendFriendInviteCallbackProxy* SendFriendInvite(UObject* WorldContextObject, APlayerController *PlayerController, const FBPUniqueNetId &UniqueNetIDInvited);
 
 	virtual void Activate() override;

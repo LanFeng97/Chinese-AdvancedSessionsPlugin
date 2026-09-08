@@ -1,10 +1,10 @@
 {
     "FileVersion" : 3,
  
-    "FriendlyName" : "Advanced Sessions",
+    "FriendlyName" : "高级会话 (Advanced Sessions)",
     "Version" : 4.26,
     "VersionName": "4.26",
-    "Description" : "Adds new blueprint functions to handle more advanced session operations.",
+    "Description" : "为处理更高级的会话操作而添加的新蓝图函数。(Adds new blueprint functions to handle more advanced session operations.)",
     "Category" : "Advanced Sessions Plugin",
     "CreatedBy" : "Joshua Statzer",
     "CreatedByURL" : "N/A",

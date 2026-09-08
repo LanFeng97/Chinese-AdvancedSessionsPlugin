@@ -26,7 +26,14 @@ class UCreateSessionCallbackProxyAdvanced : public UOnlineBlueprintCallProxyBase
 	 *    @param bUsePresence		Must be true for a 'listen' server (Map must be loaded with option 'listen'), false for a 'dedicated' server.
 	 *	  @param bShouldAdvertise	Set to true when the OnlineSubsystem should list your server when someone is searching for servers. Otherwise the server is hidden and only join via invite is possible.
 	 */
-	UFUNCTION(BlueprintCallable, meta=(BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject",AutoCreateRefTerm="ExtraSettings"), Category = "Online|AdvancedSessions")
+	/**
+	 *  使用默认在线子系统创建一个带高级可选输入的会话。对于专用服务器，请将UsePresence设为false并把IsDedicatedServer设为true，专用服务器不使用Presence。
+	 *  @param PublicConnections	做“listen”服务器时该值必须>=2（ListenServer自身也算一个连接）
+	 *  @param bUseLAN			想进行局域网游戏时，所加载的地图必须带有“bIsLanMatch”选项
+	 *  @param bUsePresence		对“listen”服务器必须为true（地图需带“listen”选项加载）；对“dedicated”服务器为false
+	 *  @param bShouldAdvertise	希望在线子系统在别人搜索服务器时列出你的服务器就设为true，否则服务器隐藏、只能通过邀请加入。
+	 */
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "创建高级会话 (CreateAdvancedSession)", BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject",AutoCreateRefTerm="ExtraSettings"), Category = "Online|AdvancedSessions")
 	static UCreateSessionCallbackProxyAdvanced* CreateAdvancedSession(UObject* WorldContextObject, const TArray<FSessionPropertyKeyPair> &ExtraSettings, class APlayerController* PlayerController = NULL, int32 PublicConnections = 100, int32 PrivateConnections = 0, bool bUseLAN = false, bool bAllowInvites = true, bool bIsDedicatedServer = false, bool bUsePresence = true, bool bAllowJoinViaPresence = true, bool bAllowJoinViaPresenceFriendsOnly = false, bool bAntiCheatProtected = false, bool bUsesStats = false, bool bShouldAdvertise = true);
 
 	// UOnlineBlueprintCallProxyBase interface
