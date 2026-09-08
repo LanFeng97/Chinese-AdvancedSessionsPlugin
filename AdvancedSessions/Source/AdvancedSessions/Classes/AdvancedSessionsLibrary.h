@@ -49,11 +49,13 @@ public:
 
 		// Adds or modifies session settings in an existing array depending on if they exist already or not
 		// 根据这些设置是否已存在，在现有数组中添加或修改会话设置
-		UFUNCTION(BlueprintCallable, Category = "Online|AdvancedSessions|SessionInfo", meta = (DisplayName = "添加或修改额外会话设置 (AddOrModifyExtraSettings)"))		static void AddOrModifyExtraSettings(UPARAM(ref)  TArray<FSessionPropertyKeyPair> & SettingsArray, UPARAM(ref)  TArray<FSessionPropertyKeyPair> & NewOrChangedSettings, TArray<FSessionPropertyKeyPair> & ModifiedSettingsArray);
+		UFUNCTION(BlueprintCallable, Category = "Online|AdvancedSessions|SessionInfo", meta = (DisplayName = "添加或修改额外会话设置 (AddOrModifyExtraSettings)"))
+		static void AddOrModifyExtraSettings(UPARAM(ref)  TArray<FSessionPropertyKeyPair> & SettingsArray, UPARAM(ref)  TArray<FSessionPropertyKeyPair> & NewOrChangedSettings, TArray<FSessionPropertyKeyPair> & ModifiedSettingsArray);
 
 		// Get an array of the session settings from a session search result
 		// 从会话搜索结果中获取会话设置数组
-		UFUNCTION(BlueprintCallable, Category = "Online|AdvancedSessions|SessionInfo", meta = (DisplayName = "获取额外会话设置 (GetExtraSettings)"))		static void GetExtraSettings(FBlueprintSessionResult SessionResult, TArray<FSessionPropertyKeyPair> & ExtraSettings);
+		UFUNCTION(BlueprintCallable, Category = "Online|AdvancedSessions|SessionInfo", meta = (DisplayName = "获取额外会话设置 (GetExtraSettings)"))
+		static void GetExtraSettings(FBlueprintSessionResult SessionResult, TArray<FSessionPropertyKeyPair> & ExtraSettings);
 
 		// Get the current session state
 		// 获取当前会话状态
@@ -72,18 +74,21 @@ public:
 		
 		// Make a literal session search parameter
 		// 创建一个会话搜索参数字面量
-		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo|Literals", meta = (DisplayName = "创建会话搜索属性字面量 (MakeLiteralSessionSearchProperty)"))		static FSessionsSearchSetting MakeLiteralSessionSearchProperty(FSessionPropertyKeyPair SessionSearchProperty, EOnlineComparisonOpRedux ComparisonOp);
+		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo|Literals", meta = (DisplayName = "创建会话搜索属性字面量 (MakeLiteralSessionSearchProperty)"))
+		static FSessionsSearchSetting MakeLiteralSessionSearchProperty(FSessionPropertyKeyPair SessionSearchProperty, EOnlineComparisonOpRedux ComparisonOp);
 
 
 		//********* Session Information Functions ***********//
 
 		// Check if a session result is valid or not
 		// 检查会话结果是否有效
-		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo", meta = (DisplayName = "会话结果是否有效 (IsValidSession)"))		static bool IsValidSession(const FBlueprintSessionResult & SessionResult);
+		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo", meta = (DisplayName = "会话结果是否有效 (IsValidSession)"))
+		static bool IsValidSession(const FBlueprintSessionResult & SessionResult);
 
 		// Get a string copy of a session ID
 		// 获取会话ID的字符串副本
-		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo", meta = (DisplayName = "获取会话ID字符串 (GetSessionID_AsString)"))		static void GetSessionID_AsString(const FBlueprintSessionResult & SessionResult, FString& SessionID);
+		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo", meta = (DisplayName = "获取会话ID字符串 (GetSessionID_AsString)"))
+		static void GetSessionID_AsString(const FBlueprintSessionResult & SessionResult, FString& SessionID);
 
 		// Get a string copy of the current session ID
 		// 获取当前会话ID的字符串副本
@@ -92,11 +97,13 @@ public:
 
 		// Get the Unique Current Build ID
 		// 获取当前唯一的构建ID
-		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo", meta = (DisplayName = "获取当前唯一构建ID (GetCurrentUniqueBuildID)"))		static void GetCurrentUniqueBuildID(int32 &UniqueBuildId);
+		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo", meta = (DisplayName = "获取当前唯一构建ID (GetCurrentUniqueBuildID)"))
+		static void GetCurrentUniqueBuildID(int32 &UniqueBuildId);
 		
 		// Get the Unique Build ID from a session search result
 		// 从会话搜索结果中获取唯一构建ID
-		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo", meta = (DisplayName = "获取唯一构建ID (GetUniqueBuildID)"))		static void GetUniqueBuildID(FBlueprintSessionResult SessionResult, int32 &UniqueBuildId);
+		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo", meta = (DisplayName = "获取唯一构建ID (GetUniqueBuildID)"))
+		static void GetUniqueBuildID(FBlueprintSessionResult SessionResult, int32 &UniqueBuildId);
 		
 		
 		// Thanks CriErr for submission
@@ -104,7 +111,8 @@ public:
 
 		// Get session property Key Name value
 		// 获取会话属性的键名（Key Name）值
-		UFUNCTION(BlueprintCallable, Category = "Online|AdvancedSessions|SessionInfo", meta = (DisplayName = "获取会话属性键名 (GetSessionPropertyKey)"))		static FName GetSessionPropertyKey(const FSessionPropertyKeyPair& SessionProperty);
+		UFUNCTION(BlueprintCallable, Category = "Online|AdvancedSessions|SessionInfo", meta = (DisplayName = "获取会话属性键名 (GetSessionPropertyKey)"))
+		static FName GetSessionPropertyKey(const FSessionPropertyKeyPair& SessionProperty);
 		
 		// Find session property by Name
 		// 按名称在会话属性数组中查找属性
@@ -149,44 +157,53 @@ public:
 
 		// Make a literal session custom information key/value pair from Byte (For Enums)
 		// 用字节（Byte，用于枚举）创建会话自定义信息键值对字面量
-		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo|Literals", meta = (DisplayName = "创建会话属性字节字面量 (MakeLiteralSessionPropertyByte)"))		static FSessionPropertyKeyPair MakeLiteralSessionPropertyByte(FName Key, uint8 Value);
+		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo|Literals", meta = (DisplayName = "创建会话属性字节字面量 (MakeLiteralSessionPropertyByte)"))
+		static FSessionPropertyKeyPair MakeLiteralSessionPropertyByte(FName Key, uint8 Value);
 
 		// Make a literal session custom information key/value pair from Bool
 		// Steam only currently supports Int,Float,String,BYTE values for search filtering!
 		// 用布尔值（Bool）创建会话自定义信息键值对字面量
 		// Steam目前仅支持Int、Float、String、BYTE类型的值用于搜索过滤！
-		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo|Literals", meta = (DisplayName = "创建会话属性布尔字面量 (MakeLiteralSessionPropertyBool)"))		static FSessionPropertyKeyPair MakeLiteralSessionPropertyBool(FName Key, bool Value);
+		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo|Literals", meta = (DisplayName = "创建会话属性布尔字面量 (MakeLiteralSessionPropertyBool)"))
+		static FSessionPropertyKeyPair MakeLiteralSessionPropertyBool(FName Key, bool Value);
 
 		// Make a literal session custom information key/value pair from String
 		// 用字符串（String）创建会话自定义信息键值对字面量
-		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo|Literals", meta = (DisplayName = "创建会话属性字符串字面量 (MakeLiteralSessionPropertyString)"))		static FSessionPropertyKeyPair MakeLiteralSessionPropertyString(FName Key, FString Value);
+		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo|Literals", meta = (DisplayName = "创建会话属性字符串字面量 (MakeLiteralSessionPropertyString)"))
+		static FSessionPropertyKeyPair MakeLiteralSessionPropertyString(FName Key, FString Value);
 
 		// Make a literal session custom information key/value pair from Int
 		// 用整数（Int）创建会话自定义信息键值对字面量
-		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo|Literals", meta = (DisplayName = "创建会话属性整数字面量 (MakeLiteralSessionPropertyInt)"))		static FSessionPropertyKeyPair MakeLiteralSessionPropertyInt(FName Key, int32 Value);
+		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo|Literals", meta = (DisplayName = "创建会话属性整数字面量 (MakeLiteralSessionPropertyInt)"))
+		static FSessionPropertyKeyPair MakeLiteralSessionPropertyInt(FName Key, int32 Value);
 
 		// Make a literal session custom information key/value pair from Float
 		// 用浮点数（Float）创建会话自定义信息键值对字面量
-		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo|Literals", meta = (DisplayName = "创建会话属性浮点字面量 (MakeLiteralSessionPropertyFloat)"))		static FSessionPropertyKeyPair MakeLiteralSessionPropertyFloat(FName Key, float Value);
+		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo|Literals", meta = (DisplayName = "创建会话属性浮点字面量 (MakeLiteralSessionPropertyFloat)"))
+		static FSessionPropertyKeyPair MakeLiteralSessionPropertyFloat(FName Key, float Value);
 
 
 		//******* Player ID functions *********//
 
 		// Get the unique net id of a network player attached to the given controller
 		// 获取绑定到指定Controller的网络玩家的唯一网络ID
-		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|PlayerInfo|PlayerID", meta = (DisplayName = "获取唯一网络ID (GetUniqueNetID)"))		static void GetUniqueNetID(APlayerController *PlayerController, FBPUniqueNetId &UniqueNetId);
+		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|PlayerInfo|PlayerID", meta = (DisplayName = "获取唯一网络ID (GetUniqueNetID)"))
+		static void GetUniqueNetID(APlayerController *PlayerController, FBPUniqueNetId &UniqueNetId);
 
 		// Get the unique net id of a network player attached to the given controller
 		// 获取指定会话的所有者（Session Owner）的唯一网络ID（注意：上方英文原注释与函数实现不符，疑似复制粘贴笔误）
-		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|PlayerInfo|PlayerID", meta = (DisplayName = "获取会话所有者的唯一网络ID (GetUniqueNetIdOfSessionOwner)"))		static void GetUniqueNetIdOfSessionOwner(FBlueprintSessionResult SessionResult, FBPUniqueNetId& UniqueNetId);
+		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|PlayerInfo|PlayerID", meta = (DisplayName = "获取会话所有者的唯一网络ID (GetUniqueNetIdOfSessionOwner)"))
+		static void GetUniqueNetIdOfSessionOwner(FBlueprintSessionResult SessionResult, FBPUniqueNetId& UniqueNetId);
 
 		// Get the unique net id of a network player who is assigned the the given player state
 		// 获取分配给指定PlayerState的网络玩家的唯一网络ID
-		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|PlayerInfo|PlayerID", meta = (DisplayName = "从PlayerState获取唯一网络ID (GetUniqueNetIDFromPlayerState)"))		static void GetUniqueNetIDFromPlayerState(APlayerState *PlayerState, FBPUniqueNetId &UniqueNetId);
+		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|PlayerInfo|PlayerID", meta = (DisplayName = "从PlayerState获取唯一网络ID (GetUniqueNetIDFromPlayerState)"))
+		static void GetUniqueNetIDFromPlayerState(APlayerState *PlayerState, FBPUniqueNetId &UniqueNetId);
 		
 		// Return True if Unique Net ID is valid
 		// 若唯一网络ID有效则返回True
-		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|PlayerInfo|PlayerID", meta = (DisplayName = "唯一网络ID是否有效 (IsValidUniqueNetID)"))		static bool IsValidUniqueNetID(const FBPUniqueNetId &UniqueNetId);
+		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|PlayerInfo|PlayerID", meta = (DisplayName = "唯一网络ID是否有效 (IsValidUniqueNetID)"))
+		static bool IsValidUniqueNetID(const FBPUniqueNetId &UniqueNetId);
 
 		/* Returns true if the values are equal (A == B) */
 		// 若两个值相等（A == B）则返回true
@@ -195,17 +212,20 @@ public:
 
 		// Check if a UniqueNetId is a friend
 		// 将UniqueNetId转换为字符串（注意：上方英文原注释与函数实现不符，疑似复制粘贴笔误）
-		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|UniqueNetId", meta = (DisplayName = "唯一网络ID转字符串 (UniqueNetIdToString)"))		static void UniqueNetIdToString(const FBPUniqueNetId &UniqueNetId, FString &String);
+		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|UniqueNetId", meta = (DisplayName = "唯一网络ID转字符串 (UniqueNetIdToString)"))
+		static void UniqueNetIdToString(const FBPUniqueNetId &UniqueNetId, FString &String);
 
 		//******** Player Name Functions **********//
 
 		// Get the player name of a network player attached to the given controller
 		// 获取绑定到指定Controller的网络玩家的玩家名称
-		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|PlayerInfo|PlayerName", meta = (DisplayName = "获取玩家名称 (GetPlayerName)"))		static void GetPlayerName(APlayerController *PlayerController, FString &PlayerName);
+		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|PlayerInfo|PlayerName", meta = (DisplayName = "获取玩家名称 (GetPlayerName)"))
+		static void GetPlayerName(APlayerController *PlayerController, FString &PlayerName);
 
 		// Set the player name of a network player attached to the given controller
 		// 设置绑定到指定Controller的网络玩家的玩家名称
-		UFUNCTION(BlueprintCallable, Category = "Online|AdvancedSessions|PlayerInfo|PlayerName", meta = (DisplayName = "设置玩家名称 (SetPlayerName)"))		static void SetPlayerName(APlayerController *PlayerController, FString PlayerName);
+		UFUNCTION(BlueprintCallable, Category = "Online|AdvancedSessions|PlayerInfo|PlayerName", meta = (DisplayName = "设置玩家名称 (SetPlayerName)"))
+		static void SetPlayerName(APlayerController *PlayerController, FString PlayerName);
 
 		//********** Misc Player Info Functions *********//
 
@@ -216,11 +236,13 @@ public:
 
 		// Get the network player index of the given controller
 		// 获取指定Controller的网络玩家索引
-		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|PlayerInfo|Misc", meta = (DisplayName = "获取网络玩家索引 (GetNetPlayerIndex)"))		static void GetNetPlayerIndex(APlayerController *PlayerController, int32 &NetPlayerIndex);
+		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|PlayerInfo|Misc", meta = (DisplayName = "获取网络玩家索引 (GetNetPlayerIndex)"))
+		static void GetNetPlayerIndex(APlayerController *PlayerController, int32 &NetPlayerIndex);
 
 		// Checks if the stated session subsystem is active
 		// 检查指定的会话子系统是否处于激活状态
-		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|Misc", meta = (DisplayName = "是否存在在线子系统 (HasOnlineSubsystem)"))		static bool HasOnlineSubsystem(FName SubSystemName);
+		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|Misc", meta = (DisplayName = "是否存在在线子系统 (HasOnlineSubsystem)"))
+		static bool HasOnlineSubsystem(FName SubSystemName);
 
 		//**** Seamless travel Functions ****//
 
