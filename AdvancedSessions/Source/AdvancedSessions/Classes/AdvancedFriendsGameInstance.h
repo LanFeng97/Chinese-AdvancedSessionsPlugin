@@ -92,7 +92,10 @@ public:
 
 
 	// After a voice status has changed this event is triggered if the bEnableTalkingStatusDelegate property is true
-	// 当语音状态改变时触发此事件（若bEnableTalkingStatusDelegate属性为true）
+	/**
+	 *  当语音状态改变时触发此事件（若bEnableTalkingStatusDelegate属性为true）
+	 *  @param bIsTalking 该玩家当前是否正在说话。
+	 */
 	UFUNCTION(BlueprintImplementableEvent, Category = "AdvancedVoice", meta = (DisplayName = "玩家语音状态改变 (OnPlayerTalkingStateChanged)"))
 	void OnPlayerTalkingStateChanged(FBPUniqueNetId PlayerId, bool bIsTalking);
 
