@@ -30,15 +30,21 @@ class UCreateSessionCallbackProxyAdvanced : public UOnlineBlueprintCallProxyBase
 	 * 	  @param bStartAfterCreate Set to true to start the session after it's created. If false you need to manually call StartSession when ready.
 	 */
 	/**
-	*  使用默认在线子系统创建一个带高级可选输入的会话。对于专用服务器，请将UsePresence设为false并把IsDedicatedServer设为true，专用服务器不使用Presence。
-	*  @param PublicConnections	做“listen”服务器时该值必须>=2（ListenServer自身也算一个连接）
-	*  @param bUseLAN			想进行局域网游戏时，所加载的地图必须带有“bIsLanMatch”选项
-	*  @param bUsePresence		对“listen”服务器必须为true（地图需带“listen”选项加载）；对“dedicated”服务器为false
-	*  @param bUseLobbiesIfAvailable	若API支持，标记子系统优先使用大厅（Lobby）API而非常规托管；Steam上做listen服务器时通常为true，专用服务器为false
-	*  @param bShouldAdvertise	希望在线子系统在别人搜索服务器时列出你的服务器就设为true，否则服务器隐藏、只能通过邀请加入。
-	*  @param bUseLobbiesVoiceChatIfAvailable	若API支持，设为true以搭建带语音聊天的大厅
-	*  @param bStartAfterCreate	设为true以在会话创建后自动开始该会话；若为false，你需要在准备就绪后手动调用StartSession（开始会话）。
-	*/
+	 *  使用默认在线子系统创建一个带高级可选输入的会话。对于专用服务器，请将UsePresence设为false并把IsDedicatedServer设为true，专用服务器不使用Presence。
+	 *  @param PublicConnections 做“listen”服务器时该值必须>=2（ListenServer自身也算一个连接）
+	 *  @param bUseLAN 是否使用局域网(LAN)。勾选后只在局域网内创建房间；联机测试或同网段直连时使用，走公网在线子系统时请取消勾选。
+	 *  @param bUsePresence 是否为该会话启用在线存在状态(Presence)。做Listen Server时通常勾选（地图需以listen选项加载）；专用服务器请取消勾选。
+	 *  @param bUseLobbiesIfAvailable 是否优先使用大厅(Lobby)API来托管房间（在支持的子系统上，如Steam）。Steam的Listen Server通常勾选；专用服务器一般取消。
+	 *  @param bShouldAdvertise 是否把房间广播到服务器列表供他人搜索；取消勾选后搜索不到，只能通过邀请加入。
+	 *  @param bUseLobbiesVoiceChatIfAvailable 是否在支持时启用大厅语音聊天(Lobby Voice Chat)。
+	 *  @param bStartAfterCreate 创建会话后是否自动开始会话。取消勾选后需要在准备就绪时手动调用StartAdvancedSession(开始高级会话)，否则房间不会进入可加入的进行中状态。
+	 *  @param bAllowInvites 是否允许通过平台邀请好友加入该房间；取消后玩家只能通过搜索或直接加入进入。
+	 *  @param bIsDedicatedServer 是否为专用服务器(Dedicated Server)。专用服务器不渲染画面、不使用Presence；勾选后请不要依赖邀请/Presence相关功能。
+	 *  @param bAllowJoinViaPresence 是否允许好友通过在线状态(Presence)直接加入房间；取消后只能通过搜索或邀请加入。
+	 *  @param bAllowJoinViaPresenceFriendsOnly 是否仅允许好友通过Presence加入（勾选后非好友即使开启Presence也无法进入）。
+	 *  @param bAntiCheatProtected 是否把房间标记为“反作弊保护”；是否真正生效取决于所用的在线子系统。
+	 *  @param bUsesStats 是否为该会话启用统计数据(Stats)上报。
+	 */
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "创建高级会话 (CreateAdvancedSession)", BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject",AutoCreateRefTerm="ExtraSettings"), Category = "Online|AdvancedSessions")
 		static UCreateSessionCallbackProxyAdvanced* CreateAdvancedSession(UObject* WorldContextObject, const TArray<FSessionPropertyKeyPair>& ExtraSettings, class APlayerController* PlayerController = NULL, int32 PublicConnections = 100, int32 PrivateConnections = 0, bool bUseLAN = false, bool bAllowInvites = true, bool bIsDedicatedServer = false, bool bUsePresence = true, bool bUseLobbiesIfAvailable = true, bool bAllowJoinViaPresence = true, bool bAllowJoinViaPresenceFriendsOnly = false, bool bAntiCheatProtected = false, bool bUsesStats = false, bool bShouldAdvertise = true, bool bUseLobbiesVoiceChatIfAvailable = false, bool bStartAfterCreate = true);
 

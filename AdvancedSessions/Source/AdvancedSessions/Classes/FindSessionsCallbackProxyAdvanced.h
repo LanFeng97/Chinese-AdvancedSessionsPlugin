@@ -27,8 +27,15 @@ class UFindSessionsCallbackProxyAdvanced : public UOnlineBlueprintCallProxyBase
 	FBlueprintFindSessionsResultDelegate OnFailure;
 
 	// Searches for advertised sessions with the default online subsystem and includes an array of filters
-	// 使用默认在线子系统搜索已广播的会话，并支持传入一组过滤器（Filters）
-	// [相对4.26] 4.27起新增bSearchLobbies参数（是否同时搜索大厅）
+	/**
+	 *  使用默认在线子系统搜索已广播的会话，并支持传入一组过滤器（Filters）
+	 *  [相对4.26] 4.27起新增bSearchLobbies参数（是否同时搜索大厅）
+	 *  @param bUseLAN 是否只搜索局域网(LAN)房间；需要与房主创建会话时的设置保持一致。
+	 *  @param bEmptyServersOnly 是否只返回空房间；与“只搜索非空房间”互斥，二者不要同时勾选。
+	 *  @param bNonEmptyServersOnly 是否只返回非空房间；与“只搜索空房间”互斥，二者不要同时勾选。
+	 *  @param bSecureServersOnly 是否只返回受保护/开启反作弊的房间。
+	 *  @param bSearchLobbies 是否同时搜索大厅(Lobby)房间；该参数在5.5起已被上游注释停用，新版不再显示该引脚。
+	 */
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "高级查找会话 (FindSessionsAdvanced)", BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject", AutoCreateRefTerm="Filters"), Category = "Online|AdvancedSessions")
 	static UFindSessionsCallbackProxyAdvanced* FindSessionsAdvanced(UObject* WorldContextObject, class APlayerController* PlayerController, int32 MaxResults, bool bUseLAN, EBPServerPresenceSearchType ServerTypeToSearch, const TArray<FSessionsSearchSetting> &Filters, bool bEmptyServersOnly = false, bool bNonEmptyServersOnly = false, bool bSecureServersOnly = false, bool bSearchLobbies = true, int MinSlotsAvailable = 0);
 

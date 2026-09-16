@@ -39,7 +39,10 @@ public:
 	void OnSessionInviteAccepted(FBPUniqueNetId PersonInvited, const FBlueprintSessionResult& SearchResult);
 
 	// Called when the designated LocalUser has accepted a session invite, use JoinSession on result to connect
-	// 当指定本地用户（LocalUser）的语音状态改变时调用（注意：上方英文原注释疑似复制粘贴错误）
+	/**
+	 *  当指定本地用户（LocalUser）的语音状态改变时调用（注意：上方英文原注释疑似复制粘贴错误）
+	 *  @param bIsTalking 该玩家当前是否正在说话。
+	 */
 	UFUNCTION(BlueprintImplementableEvent, meta = (DisplayName = "玩家语音状态改变 (OnPlayerVoiceStateChanged)"))
 	void OnPlayerVoiceStateChanged(FBPUniqueNetId PlayerId, bool bIsTalking);
 
