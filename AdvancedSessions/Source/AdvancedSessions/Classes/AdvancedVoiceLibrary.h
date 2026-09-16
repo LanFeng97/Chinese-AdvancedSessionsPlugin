@@ -101,12 +101,18 @@ public:
 	static bool IsPlayerMuted(uint8 LocalUserNumChecking, const FBPUniqueNetId& UniqueNetId);
 
 	// Mutes the player associated with the uniquenetid for the specified local player, if IsSystemWide is true then it will attempt to mute globally for the player
-	// 将UniqueNetId对应的玩家对指定本地玩家静音；若IsSystemWide为true则尝试对该玩家全局静音
+	/**
+	 *  将UniqueNetId对应的玩家对指定本地玩家静音；若IsSystemWide为true则尝试对该玩家全局静音
+	 *  @param bIsSystemWide 是否对该玩家全局静音（对所有本地玩家生效）；取消勾选则只对LocalUserNum指定的本地玩家生效。
+	 */
 	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedVoice", meta = (DisplayName = "静音远程讲话者 (MuteRemoteTalker)"))
 	static bool MuteRemoteTalker(uint8 LocalUserNum, const FBPUniqueNetId& UniqueNetId, bool bIsSystemWide = false);
 
 	// UnMutes the player associated with the uniquenetid for the specified local player, if IsSystemWide is true then it will attempt to unmute globally for the player
-	// 取消UniqueNetId对应的玩家对指定本地玩家的静音；若IsSystemWide为true则尝试对该玩家全局取消静音
+	/**
+	 *  取消UniqueNetId对应的玩家对指定本地玩家的静音；若IsSystemWide为true则尝试对该玩家全局取消静音
+	 *  @param bIsSystemWide 是否对该玩家全局取消静音（对所有本地玩家生效）；取消勾选则只对LocalUserNum指定的本地玩家生效。
+	 */
 	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedVoice", meta = (DisplayName = "取消静音远程讲话者 (UnMuteRemoteTalker)"))
 	static bool UnMuteRemoteTalker(uint8 LocalUserNum, const FBPUniqueNetId& UniqueNetId, bool bIsSystemWide = false);
 
