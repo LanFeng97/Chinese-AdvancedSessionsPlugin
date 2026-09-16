@@ -162,8 +162,11 @@ public:
 
 		// Make a literal session custom information key/value pair from Bool
 		// Steam only currently supports Int,Float,String,BYTE values for search filtering!
-		// 用布尔值（Bool）创建会话自定义信息键值对字面量
-		// Steam目前仅支持Int、Float、String、BYTE类型的值用于搜索过滤！
+		/**
+		 *  用布尔值（Bool）创建会话自定义信息键值对字面量
+		 *  Steam目前仅支持Int、Float、String、BYTE类型的值用于搜索过滤！
+		 *  @param Value 该布尔类型会话属性要设置的值。
+		 */
 		UFUNCTION(BlueprintPure, Category = "Online|AdvancedSessions|SessionInfo|Literals", meta = (DisplayName = "创建会话属性布尔字面量 (MakeLiteralSessionPropertyBool)"))
 		static FSessionPropertyKeyPair MakeLiteralSessionPropertyBool(FName Key, bool Value);
 
@@ -247,7 +250,11 @@ public:
 		//**** Seamless travel Functions ****//
 		
 		//Exposes Server travel to blueprint
-		// 向蓝图暴露服务器切换关卡（Server Travel）功能
+		/**
+		 *  向蓝图暴露服务器切换关卡（Server Travel）功能
+		 *  @param bAbsolute 是否把InURL当作绝对地址/关卡路径处理；一般配合绝对路径使用。
+		 *  @param bShouldSkipGameNotify 服务器切换关卡时是否跳过GameMode的切换通知（过渡流程）。
+		 */
 		UFUNCTION(BlueprintCallable, BlueprintAuthorityOnly, Category = "Online|AdvancedSessions|Seamless", meta = (DisplayName = "服务器切换关卡 (ServerTravel)", HidePin = "WorldContextObject", DefaultToSelf = "WorldContextObject"))
 		static bool ServerTravel(UObject* WorldContextObject, const FString& InURL, bool bAbsolute, bool bShouldSkipGameNotify);
 
