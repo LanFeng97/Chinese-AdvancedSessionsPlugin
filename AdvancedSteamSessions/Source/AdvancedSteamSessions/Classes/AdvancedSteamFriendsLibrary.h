@@ -339,7 +339,10 @@ public:
 	static UTexture2D * GetSteamFriendAvatar(const FBPUniqueNetId UniqueNetId, EBlueprintAsyncResultSwitch &Result, SteamAvatarSize AvatarSize = SteamAvatarSize::SteamAvatar_Medium);
 
 	// Preloads the avatar and name of a steam friend, return whether it is already available or not, STEAM ONLY, Takes time to actually load everything after this is called.
-	// 预加载Steam好友的头像与名称，返回这些信息是否已可用；仅限Steam。调用后实际加载全部内容需要一定时间。
+	/**
+	 *  预加载Steam好友的头像与名称，返回这些信息是否已可用；仅限Steam。调用后实际加载全部内容需要一定时间。
+	 *  @param bRequireNameOnly 是否只请求好友名称而不加载头像等其它信息，可用于减少请求开销。
+	 */
 	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedFriends|SteamAPI", meta = (DisplayName = "请求Steam好友信息 (RequestSteamFriendInfo)"))
 	static bool RequestSteamFriendInfo(const FBPUniqueNetId UniqueNetId, bool bRequireNameOnly = false);
 

@@ -47,7 +47,12 @@ public:
 	static void ShowLeaderBoardUI(UObject* WorldContextObject, FString LeaderboardName, EBlueprintResultSwitch &Result);
 
 	// Show the UI that shows a web URL
-	// 显示用于展示网页URL的界面
+	/**
+	 *  显示用于展示网页URL的界面
+	 *  @param bEmbedded 是否在游戏内嵌显示网页；取消勾选则交由平台或外部浏览器处理。
+	 *  @param bShowBackground 内嵌显示网页时是否绘制不透明背景。
+	 *  @param bShowCloseButton 是否显示关闭按钮，方便玩家自行关闭网页界面。
+	 */
 	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedExternalUI", meta = (DisplayName = "显示网页URL界面 (ShowWebURLUI)", ExpandEnumAsExecs = "Result", AutoCreateRefTerm = "AllowedDomains", WorldContext = "WorldContextObject"))
 	static void ShowWebURLUI(UObject* WorldContextObject, FString URLToShow, EBlueprintResultSwitch &Result, TArray<FString>& AllowedDomains, bool bEmbedded = false , bool bShowBackground = false, bool bShowCloseButton = false, int32 OffsetX = 0, int32 OffsetY = 0, int32 SizeX = 0, int32 SizeY = 0);
 
