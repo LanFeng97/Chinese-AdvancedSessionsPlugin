@@ -1,4 +1,4 @@
-# Advanced Sessions Plugin 中文汉化版（Chinese-AdvancedSessionsPlugin）
+# Advanced Sessions Plugin 中文汉化版（Chinese-AdvancedSessionsPlugin）4.26-5.9
 
 > 本仓库是 [AdvancedSessionsPlugin](https://github.com/mordentral/AdvancedSessionsPlugin)（原作者 **mordentral**）的 **Fork + 中文汉化** 版本，许可协议见 `LICENSE.txt`（与上游一致）。
 
@@ -33,6 +33,7 @@
 | UE 5.6 | `5.6-Locked` | |
 | UE 5.7 | `5.7-Locked` | |
 | UE 5.8 | `5.8-Locked` | 自 master（上游 5.8）切出的中文分支 |
+| UE 5.9 | `5.9-Locked` | 基于上游 master（5.8 + 最新修复）适配并验证于 UE5.9 |
 | （总览） | `master` | 上游 5.8 原样基线；本页即总说明 |
 
 切换方式（任选其一）：
