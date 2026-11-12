@@ -41,7 +41,7 @@
 ```bash
 # 命令行：先下载全部分支
 git clone -b master https://github.com/LanFeng97/Chinese-AdvancedSessionsPlugin4.26-5.9.git
-cd Chinese-AdvancedSessionsPlugin
+cd Chinese-AdvancedSessionsPlugin4.26-5.9
 git fetch origin
 git checkout 5.4-Locked        # 把 5.4-Locked 换成你需要的版本
 ```
