@@ -63,7 +63,8 @@ class USteamWSRequestUGCDetailsCallbackProxy : public UOnlineBlueprintCallProxyB
 	FBlueprintWorkshopDetailsDelegate OnFailure;
 
 	// Ends the current session
-	UFUNCTION(BlueprintCallable, meta=(BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|AdvancedSteamWorkshop")
+	// 获取创意工坊物品（UGC）的详细信息（注意：上方英文原注释“结束当前会话”与函数实现不符，疑似复制粘贴错误）
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "获取创意工坊物品详情 (GetWorkshopItemDetails)", BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|AdvancedSteamWorkshop")
 	static USteamWSRequestUGCDetailsCallbackProxy* GetWorkshopItemDetails(UObject* WorldContextObject, FBPSteamWorkshopID WorkShopID);
 
 	// UOnlineBlueprintCallProxyBase interface

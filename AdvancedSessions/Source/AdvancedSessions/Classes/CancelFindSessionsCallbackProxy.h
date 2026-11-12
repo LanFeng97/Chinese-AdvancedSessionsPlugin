@@ -20,7 +20,8 @@ class UCancelFindSessionsCallbackProxy : public UOnlineBlueprintCallProxyBase
 	FEmptyOnlineDelegate OnFailure;
 
 	// Cancels finding sessions
-	UFUNCTION(BlueprintCallable, meta=(BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|AdvancedSessions")
+	// 取消正在进行的会话查找
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "取消查找会话 (CancelFindSessions)", BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|AdvancedSessions")
 	static UCancelFindSessionsCallbackProxy* CancelFindSessions(UObject* WorldContextObject, class APlayerController* PlayerController);
 
 	// UOnlineBlueprintCallProxyBase interface

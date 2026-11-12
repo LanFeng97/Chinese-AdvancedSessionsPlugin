@@ -342,10 +342,11 @@ public:
 	//********* Steam Functions *************//
 	
 	// Returns IDs for subscribed workshop items, TArray length dictates how many
-	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedSteamWorkshop")
+	// 返回已订阅创意工坊物品的ID，返回数组的长度即表示数量
+	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedSteamWorkshop", meta = (DisplayName = "获取已订阅创意工坊物品 (GetSubscribedWorkshopItems)"))
 	static TArray<FBPSteamWorkshopID> GetSubscribedWorkshopItems(int32 & NumberOfItems);
 
-	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedSteamWorkshop")
+	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedSteamWorkshop", meta = (DisplayName = "获取已订阅创意工坊物品数量 (GetNumSubscribedWorkshopItems)"))
 	static void GetNumSubscribedWorkshopItems(int32 & NumberOfItems);
 
 };	

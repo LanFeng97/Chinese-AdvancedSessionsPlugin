@@ -27,13 +27,25 @@ class UFindSessionsCallbackProxyAdvanced : public UOnlineBlueprintCallProxyBase
 	FBlueprintFindSessionsResultDelegate OnFailure;
 
 	// Searches for advertised sessions with the default online subsystem and includes an array of filters
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject", AutoCreateRefTerm="Filters"), Category = "Online|AdvancedSessions")
-	static UFindSessionsCallbackProxyAdvanced* FindSessionsAdvanced(UObject* WorldContextObject, class APlayerController* PlayerController, int32 MaxResults, bool bUseLAN, EBPServerPresenceSearchType ServerTypeToSearch, const TArray<FSessionsSearchSetting> &Filters, bool bEmptyServersOnly = false, bool bNonEmptyServersOnly = false, bool bSecureServersOnly = false, /*bool bSearchLobbies = true,*/ int MinSlotsAvailable = 0);
+	/**
+	 *  已停用参数（上游原注释）：bool bSearchLobbies = true,
+	 *  已停用参数（上游原注释）：bool bSearchLobbies = true,
+	 *  使用默认在线子系统搜索已广播的会话，并支持传入一组过滤器（Filters）
+	 *  [相对4.26] 4.27起新增bSearchLobbies参数（是否同时搜索大厅）
+	 *  [相对5.4] 5.5起上游已注释停用bSearchLobbies参数（不再搜索大厅）
+	 *  @param bUseLAN 是否只搜索局域网(LAN)房间；需要与房主创建会话时的设置保持一致。
+	 *  @param bEmptyServersOnly 是否只返回空房间；与“只搜索非空房间”互斥，二者不要同时勾选。
+	 *  @param bNonEmptyServersOnly 是否只返回非空房间；与“只搜索空房间”互斥，二者不要同时勾选。
+	 *  @param bSecureServersOnly 是否只返回受保护/开启反作弊的房间。
+	 */
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "高级查找会话 (FindSessionsAdvanced)", BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject", AutoCreateRefTerm="Filters"), Category = "Online|AdvancedSessions")
+	static UFindSessionsCallbackProxyAdvanced* FindSessionsAdvanced(UObject* WorldContextObject, class APlayerController* PlayerController, int32 MaxResults, bool bUseLAN, EBPServerPresenceSearchType ServerTypeToSearch, const TArray<FSessionsSearchSetting> &Filters, bool bEmptyServersOnly = false, bool bNonEmptyServersOnly = false, bool bSecureServersOnly = false, int MinSlotsAvailable = 0);
 
 	static bool CompareVariants(const FVariantData &A, const FVariantData &B, EOnlineComparisonOpRedux Comparator);
 	
 	// Filters an array of session results by the given search parameters, returns a new array with the filtered results
-	UFUNCTION(BluePrintCallable, meta = (Category = "Online|AdvancedSessions"))
+	// 按给定搜索参数过滤会话结果数组，返回过滤后的新数组
+	UFUNCTION(BluePrintCallable, meta = (DisplayName = "过滤会话结果 (FilterSessionResults)", Category = "Online|AdvancedSessions"))
 	static void FilterSessionResults(const TArray<FBlueprintSessionResult> &SessionResults, const TArray<FSessionsSearchSetting> &Filters, TArray<FBlueprintSessionResult> &FilteredResults);
 	
 	// Removed, the default built in versions work fine in the normal FindSessionsCallbackProxy

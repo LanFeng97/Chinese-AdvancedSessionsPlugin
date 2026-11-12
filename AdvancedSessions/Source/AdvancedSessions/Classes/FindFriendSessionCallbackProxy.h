@@ -24,7 +24,8 @@ class UFindFriendSessionCallbackProxy : public UOnlineBlueprintCallProxyBase
 	FBlueprintFindFriendSessionDelegate OnFailure;
 
 	// Attempts to get the current session that a friend is in
-	UFUNCTION(BlueprintCallable, meta=(BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|AdvancedFriends")
+	// 尝试获取某位好友当前所在的会话
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "查找好友会话 (FindFriendSession)", BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|AdvancedFriends")
 	static UFindFriendSessionCallbackProxy* FindFriendSession(UObject* WorldContextObject, APlayerController *PlayerController, const FBPUniqueNetId &FriendUniqueNetId);
 
 	virtual void Activate() override;

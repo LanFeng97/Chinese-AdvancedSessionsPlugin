@@ -79,7 +79,8 @@ class USteamRequestGroupOfficersCallbackProxy : public UOnlineBlueprintCallProxy
 	FBlueprintGroupOfficerDetailsDelegate OnFailure;
 
 	// Returns a list of steam group officers
-	UFUNCTION(BlueprintCallable, meta=(BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|SteamAPI|SteamGroups")
+	// 返回Steam群组管理员的列表
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "获取Steam群组管理员列表 (GetSteamGroupOfficerList)", BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject"), Category = "Online|SteamAPI|SteamGroups")
 	static USteamRequestGroupOfficersCallbackProxy* GetSteamGroupOfficerList(UObject* WorldContextObject, FBPUniqueNetId GroupUniqueNetID);
 
 	// UOnlineBlueprintCallProxyBase interface
